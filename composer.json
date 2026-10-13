@@ -2,22 +2,27 @@
     "name": "pieceofcake2/localized",
     "description": "CakePHP 2 Localized Plugin",
     "type": "cakephp-plugin",
-    "keywords": ["cakephp", "localized", "i18n", "l10n"],
+    "keywords": ["cakephp", "cakephp2", "localized", "i18n", "l10n"],
     "license": "MIT",
     "require": {
-        "php": "^8.0",
-        "composer/installers": "*",
-        "pieceofcake2/cakephp": "^2.10"
+        "php": ">=8.0",
+        "composer/installers": "^1.0 || ^2.0",
+        "pieceofcake2/cakephp": "^2.12"
     },
     "require-dev": {
         "cakephp/cakephp-codesniffer": "^5.0",
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^9.6",
-        "pieceofcake2/app": "^2.1",
+        "pieceofcake2/app": "^2.2",
         "pieceofcake2/phpstan-cakephp2": "^0.2.1"
     },
     "replace": {
         "cakephp/localized": "^2.0"
+    },
+    "autoload-dev": {
+        "exclude-from-classmap": [
+            "vendor/pieceofcake2/app/src/Console/Command/AppShell.php"
+        ]
     },
     "config": {
         "sort-packages": true,
