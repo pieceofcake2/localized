@@ -13,10 +13,10 @@ This plugin contains various localized validation classes for specific countries
 
 ## Requirements
 
-The master branch has the following requirements:
+The 2.x branch has the following requirements:
 
-* CakePHP 2.1.0 or greater.
-* PHP 8.0 or greater.
+* CakePHP 2.12+ ([pieceofcake2/cakephp](https://github.com/pieceofcake2/cakephp))
+* PHP 8.0+
 
 ## Installation
 
