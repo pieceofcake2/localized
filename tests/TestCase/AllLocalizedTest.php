@@ -16,11 +16,11 @@ use PHPUnit\Framework\Test;
 use PHPUnit\Framework\TestSuite;
 
 /**
- * AllLocalizedTests class
+ * AllLocalizedTest class
  *
  * This test group will run all tests.
  */
-class AllLocalizedTests extends TestSuite
+class AllLocalizedTest extends TestSuite
 {
     /**
      * Suite define the tests for this suite
@@ -30,7 +30,7 @@ class AllLocalizedTests extends TestSuite
     public static function suite(): Test
     {
         $suite = new CakeTestSuite('All Tests');
-        $suite->addTestDirectoryRecursive(CakePlugin::path('Localized') . 'Test' . DS . 'Case' . DS);
+        $suite->addTestDirectoryRecursive(CakePlugin::path('Localized') . 'tests' . DS . 'TestCase' . DS);
 
         return $suite;
     }
