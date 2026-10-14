@@ -68,10 +68,10 @@ class TwValidation extends LocalizedValidation
         $checksum = intval($n1 / 10) + ($n1 % 10) * 9;
 
         for ($i = 1; $i < 9; $i++) {
-            $checksum += $check[$i] * (9 - $i);
+            $checksum += intval($check[$i]) * (9 - $i);
         }
 
-        return substr(10 - ($checksum % 10), 0, 1) == $check[9];
+        return (10 - $checksum % 10) % 10 == $check[9];
     }
 
     /**
@@ -89,12 +89,12 @@ class TwValidation extends LocalizedValidation
         $tbNum = [1, 2, 1, 2, 1, 2, 4, 1];
         $intSum = 0;
         for ($i = 0; $i < 8; $i++) {
-            $intMultiply = $check[$i] * $tbNum[$i];
+            $intMultiply = intval($check[$i]) * $tbNum[$i];
             $intAddition = floor($intMultiply / 10) + ($intMultiply % 10);
             $intSum += $intAddition;
         }
 
-        return ($intSum % 10 === 0) || ($intSum % 10 === 9 && $check[6] === 7);
+        return ($intSum % 10 === 0) || ($intSum % 10 === 9 && $check[6] === '7');
     }
 
     /**

@@ -75,27 +75,26 @@ class BrValidation extends LocalizedValidation
         }
 
         // repeated values are invalid, but algorithms fails to check it
-        for ($i = 0; $i < 10; $i++) {
-            if (str_repeat($i, 11) === $check) {
-                return false;
-            }
+        if (count(array_unique(str_split($check))) === 1) {
+            return false;
         }
 
+        $digits = array_map('intval', str_split($check));
         $dv = substr($check, -2);
         for ($pos = 9; $pos <= 10; $pos++) {
             $sum = 0;
             $position = $pos + 1;
             for ($i = 0; $i <= $pos - 1; $i++, $position--) {
-                $sum += $check[$i] * $position;
+                $sum += $digits[$i] * $position;
             }
             $div = $sum % 11;
             if ($div < 2) {
-                $check[$pos] = 0;
+                $digits[$pos] = 0;
             } else {
-                $check[$pos] = 11 - $div;
+                $digits[$pos] = 11 - $div;
             }
         }
-        $dvRight = $check[9] * 10 + $check[10];
+        $dvRight = $digits[9] * 10 + $digits[10];
 
         return $dvRight == $dv;
     }
@@ -119,19 +118,20 @@ class BrValidation extends LocalizedValidation
         if (strlen($check) != 14) {
             return false;
         }
-        $firstSum = ($check[0] * 5) + ($check[1] * 4) + ($check[2] * 3) + ($check[3] * 2) +
-            ($check[4] * 9) + ($check[5] * 8) + ($check[6] * 7) + ($check[7] * 6) +
-            ($check[8] * 5) + ($check[9] * 4) + ($check[10] * 3) + ($check[11] * 2);
+        $digits = array_map('intval', str_split($check));
+        $firstSum = ($digits[0] * 5) + ($digits[1] * 4) + ($digits[2] * 3) + ($digits[3] * 2) +
+            ($digits[4] * 9) + ($digits[5] * 8) + ($digits[6] * 7) + ($digits[7] * 6) +
+            ($digits[8] * 5) + ($digits[9] * 4) + ($digits[10] * 3) + ($digits[11] * 2);
 
         $firstVerificationDigit = $firstSum % 11 < 2 ? 0 : 11 - ($firstSum % 11);
 
-        $secondSum = ($check[0] * 6) + ($check[1] * 5) + ($check[2] * 4) + ($check[3] * 3) +
-            ($check[4] * 2) + ($check[5] * 9) + ($check[6] * 8) + ($check[7] * 7) +
-            ($check[8] * 6) + ($check[9] * 5) + ($check[10] * 4) + ($check[11] * 3) +
-            ($check[12] * 2);
+        $secondSum = ($digits[0] * 6) + ($digits[1] * 5) + ($digits[2] * 4) + ($digits[3] * 3) +
+            ($digits[4] * 2) + ($digits[5] * 9) + ($digits[6] * 8) + ($digits[7] * 7) +
+            ($digits[8] * 6) + ($digits[9] * 5) + ($digits[10] * 4) + ($digits[11] * 3) +
+            ($digits[12] * 2);
 
         $secondVerificationDigit = $secondSum % 11 < 2 ? 0 : 11 - ($secondSum % 11);
 
-        return ($check[12] == $firstVerificationDigit) && ($check[13] == $secondVerificationDigit);
+        return ($digits[12] == $firstVerificationDigit) && ($digits[13] == $secondVerificationDigit);
     }
 }

@@ -50,7 +50,7 @@ class PlValidation extends LocalizedValidation
         $check = str_replace('-', '', $check);
 
         for ($i = 0; $i < 9; $i++) {
-            $sum += $check[$i] * $weights[$i];
+            $sum += intval($check[$i]) * $weights[$i];
         }
 
         $control = $sum % 11;
@@ -81,7 +81,7 @@ class PlValidation extends LocalizedValidation
             $weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];
 
             for ($i = 0; $i < 10; $i++) {
-                $sum += $check[$i] * $weights[$i];
+                $sum += intval($check[$i]) * $weights[$i];
             }
 
             $control = 10 - $sum % 10;
@@ -113,7 +113,7 @@ class PlValidation extends LocalizedValidation
             $weights = [8, 9, 2, 3, 4, 5, 6, 7];
 
             for ($i = 0; $i < 8; $i++) {
-                $sum += $check[$i] * $weights[$i];
+                $sum += intval($check[$i]) * $weights[$i];
             }
 
             $control = $sum % 11;

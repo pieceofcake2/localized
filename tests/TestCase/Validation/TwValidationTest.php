@@ -60,7 +60,7 @@ class TwValidationTest extends CakeTestCase
      */
     public function testNicn(): void
     {
-        $this->assertTrue(TwValidation::nicn('Y100000001'));
+        $this->assertTrue(TwValidation::nicn('Y100000000'));
         $this->assertTrue(TwValidation::nicn('K164729166'));
         $this->assertTrue(TwValidation::nicn('U267825932'));
         $this->assertTrue(TwValidation::nicn('O257854301'));
@@ -92,5 +92,30 @@ class TwValidationTest extends CakeTestCase
         $this->assertTrue(TwValidation::ubn('70433803'));
         $this->assertTrue(TwValidation::ubn('70445786'));
         $this->assertTrue(TwValidation::ubn('70460815'));
+    }
+
+    /**
+     * test the ubn method of TwValidation when the 7th digit is 7
+     *
+     * @return void
+     */
+    public function testUbnSeventhDigitSeven(): void
+    {
+        $this->assertTrue(TwValidation::ubn('10458574'));
+        $this->assertFalse(TwValidation::ubn('10458504'));
+    }
+
+    /**
+     * test the personId method of TwValidation
+     *
+     * @return void
+     */
+    public function testPersonId(): void
+    {
+        $this->assertTrue(TwValidation::personId('A123456789'));
+        $this->assertTrue(TwValidation::personId('Y100000000'));
+        $this->assertFalse(TwValidation::personId('Y100000001'));
+        $this->assertFalse(TwValidation::personId('A123456788'));
+        $this->assertFalse(TwValidation::personId('A323456789'));
     }
 }
