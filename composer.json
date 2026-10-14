@@ -1,6 +1,6 @@
 {
     "name": "pieceofcake2/localized",
-    "description": "CakePHP 2 Localized Plugin",
+    "description": "CakePHP 2 localized validation rules for postal codes, phone numbers and person IDs of many countries, with core translations",
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "cakephp2", "localized", "i18n", "l10n"],
     "license": "MIT",
