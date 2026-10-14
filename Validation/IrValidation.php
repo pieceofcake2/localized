@@ -98,27 +98,30 @@ class IrValidation extends LocalizedValidation
     }
 
     /**
-     * Checks a social security number for Iran.
+     * Checks a national code (code melli) for Iran.
+     *
+     * The tenth digit is a check digit: the first nine digits are weighted
+     * 10 down to 2 and summed; for remainder r = sum % 11 the check digit is
+     * r when r < 2, otherwise 11 - r. Codes consisting of one repeated digit
+     * pass the checksum but are rejected.
      *
      * @param string $check The value to check.
      * @return bool Success.
      */
     public static function personId($check): bool
     {
-        $pattern = '/^\d{10}$/';
+        $pattern = '/^\d{10}$/D';
         if (!preg_match($pattern, $check)) {
             return false;
         }
+        // Codes made of a single repeated digit (e.g. 1111111111) satisfy the
+        // checksum but are never issued.
+        if (preg_match('/^(\d)\1{9}$/', $check)) {
+            return false;
+        }
         $sum = 0;
-        $equivalent = 0;
         for ($i = 0; $i < 9; $i++) {
             $sum += intval($check[$i]) * (10 - $i);
-            if ($check[1] == $check[$i]) {
-                $equivalent++;
-            }
-        }
-        if ($equivalent == 10) {
-            return false;
         }
         $remaining = $sum % 11;
         if ($remaining <= 1) {
