@@ -82,7 +82,7 @@ class RuValidation
      */
     public static function vatin($check)
     {
-        $pattern = '/^\d{10}|\d{12}$/';
+        $pattern = '/^(?:\d{10}|\d{12})$/D';
         if (!preg_match($pattern, $check)) {
             return false;
         }
@@ -140,7 +140,7 @@ class RuValidation
      */
     public static function snils($check)
     {
-        $pattern = '/\d{3}-\d{3}-\d{3} \d{2}/';
+        $pattern = '/^\d{3}-\d{3}-\d{3} \d{2}$/D';
         if (!preg_match($pattern, $check)) {
             return false;
         }

@@ -149,8 +149,21 @@ class IrValidationTest extends CakeTestCase
         $this->assertTrue(IrValidation::ssn('0324354657'));
 
         $this->assertFalse(IrValidation::ssn('1234567890'));
-        //$this->assertFalse(IrValidation::ssn('3333333333'));
         $this->assertFalse(IrValidation::ssn('0324354654'));
         $this->assertFalse(IrValidation::ssn('12345'));
+        $this->assertFalse(IrValidation::ssn("1234567891\n"));
+    }
+
+    /**
+     * Codes made of a single repeated digit satisfy the checksum but are invalid.
+     *
+     * @return void
+     */
+    public function testPersonIdRejectsRepeatedDigits(): void
+    {
+        for ($digit = 0; $digit <= 9; $digit++) {
+            $code = str_repeat((string)$digit, 10);
+            $this->assertFalse(IrValidation::personId($code), $code);
+        }
     }
 }

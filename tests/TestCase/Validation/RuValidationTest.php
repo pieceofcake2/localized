@@ -87,6 +87,12 @@ class RuValidationTest extends CakeTestCase
         // invalid checksums
         $this->assertFalse(RuValidation::vatin('7710140670'));
         $this->assertFalse(RuValidation::vatin('772807592837'));
+
+        // the value must consist of exactly 10 or 12 digits
+        $this->assertFalse(RuValidation::vatin('7710140642--'));
+        $this->assertFalse(RuValidation::vatin('7710140642ab'));
+        $this->assertFalse(RuValidation::vatin('x100000000027'));
+        $this->assertFalse(RuValidation::vatin("7710140679\n"));
     }
 
     /**
@@ -105,5 +111,10 @@ class RuValidationTest extends CakeTestCase
 
         // invalid checksum
         $this->assertFalse(RuValidation::snils('112-233-445 96'));
+
+        // surrounding characters
+        $this->assertFalse(RuValidation::snils('x112-233-445 95'));
+        $this->assertFalse(RuValidation::snils('0112-233-445 95'));
+        $this->assertFalse(RuValidation::snils('112-233-445 95x'));
     }
 }
