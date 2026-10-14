@@ -48,6 +48,22 @@ class PlValidationTest extends CakeTestCase
     }
 
     /**
+     * Each accepted format must match the whole value.
+     *
+     * @return void
+     */
+    public function testSsnRejectsSurroundingCharacters(): void
+    {
+        $this->assertFalse(PlValidation::ssn('768-000-24-66x'));
+        $this->assertFalse(PlValidation::ssn('768-000-24-660'));
+        $this->assertFalse(PlValidation::ssn('768-00-02-466x'));
+        $this->assertFalse(PlValidation::ssn('-768-00-02-466'));
+        $this->assertFalse(PlValidation::ssn('76800024660'));
+        $this->assertFalse(PlValidation::ssn('-7680002466'));
+        $this->assertFalse(PlValidation::ssn("7680002466\n"));
+    }
+
+    /**
      * Test the pesel method of PlValidation
      *
      * @return void
