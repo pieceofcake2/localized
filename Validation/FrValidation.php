@@ -66,13 +66,13 @@ class FrValidation extends LocalizedValidation
         // source : https://xml.insee.fr/schema/nir.html
         // check : https://www.parodie.com/monetique/nir.htm
         if ($numberWithoutKey[6] == 'A') {
-            $numberWithoutKey = str_replace('A', '0', $numberWithoutKey);
-            $numberWithoutKey -= 1000000;
+            $number = intval(str_replace('A', '0', $numberWithoutKey)) - 1000000;
         } elseif ($numberWithoutKey[6] == 'B') {
-            $numberWithoutKey = str_replace('B', '0', $numberWithoutKey);
-            $numberWithoutKey -= 2000000;
+            $number = intval(str_replace('B', '0', $numberWithoutKey)) - 2000000;
+        } else {
+            $number = intval($numberWithoutKey);
         }
 
-        return $key == 97 - ($numberWithoutKey - (floor($numberWithoutKey / 97) * 97));
+        return $key == 97 - ($number - (floor($number / 97) * 97));
     }
 }

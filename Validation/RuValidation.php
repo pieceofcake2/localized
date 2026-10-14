@@ -87,7 +87,7 @@ class RuValidation
             return false;
         }
 
-        $digits = str_split($check); // getting digits & positions from id string
+        $digits = array_map('intval', str_split($check)); // getting digits & positions from id string
 
         $calculatedChecksum = null;
         if (strlen($check) === 10) {
@@ -149,15 +149,14 @@ class RuValidation
 
         $id = str_replace('-', '', $id);
         // getting digits & positions from id string
-        $digits = array_reverse(str_split($id));
+        $digits = array_reverse(array_map('intval', str_split($id)));
 
         $sum = 0;
         foreach ($digits as $position => $value) {
             $sum += ($position + 1) * $value;
         }
 
-        $calculatedChecksum = $sum % 101;
-        $calculatedChecksum = str_pad($calculatedChecksum, 2, '0', STR_PAD_LEFT);
+        $calculatedChecksum = sprintf('%02d', $sum % 101);
         $calculatedChecksum = substr($calculatedChecksum, -2);
 
         return $calculatedChecksum === $checksum;
