@@ -13,6 +13,13 @@ numbers, person IDs and more), translations of the core's `cake` domain and POSI
 This is a fork of [cakephp/localized](https://github.com/cakephp/localized) 2.x for
 [pieceofcake2/cakephp](https://github.com/pieceofcake2/cakephp).
 
+## Documentation
+
+- Website: https://pieceofcake2.github.io/localized/
+- Markdown: [docs/README.md](docs/README.md) (for AI tools and offline reading)
+
+The Markdown documentation is also included in the Composer package, in the plugin's directory: `plugins/Localized/docs/README.md` (the location depends on your `installer-paths`). Install the package with `--dev` if you only need it for development.
+
 ## Requirements
 
 * PHP 8.0+
@@ -23,10 +30,6 @@ This is a fork of [cakephp/localized](https://github.com/cakephp/localized) 2.x 
 ```bash
 composer require pieceofcake2/localized
 ```
-
-## Documentation
-
-See the [documentation](https://pieceofcake2.github.io/localized/).
 
 ## Reporting Issues
 
