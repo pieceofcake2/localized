@@ -181,3 +181,11 @@ There are a few methods that are common to all classes, defined through the inte
 
 Please try to fit your validation rules in that naming scheme. Apart from that you can also
 define further validation methods in your implementing class, of course.
+
+## Origin
+
+This package is a maintained fork of [cakephp/localized](https://github.com/cakephp/localized)
+(`cakephp/localized` on Packagist, last upstream version 2.7.0), originally by the CakePHP community
+(Cake Software Foundation, Inc.). It is maintained for CakePHP 2 on modern PHP by
+[pieceofcake2](https://github.com/pieceofcake2). Changes from the original are listed in the
+[commit history since the fork](https://github.com/pieceofcake2/localized/compare/26ed36a...2.x).
