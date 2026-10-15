@@ -17,7 +17,7 @@ core's client-facing strings (the `cake` domain) and POSIX LC_TIME files.
 
 Install the plugin with [Composer](https://getcomposer.org/):
 
-```
+```bash
 composer require pieceofcake2/localized
 ```
 
