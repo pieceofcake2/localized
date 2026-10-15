@@ -105,7 +105,7 @@ class Post extends AppModel
 }
 ```
 
-バリデーションルールについて詳しくは、本の
+バリデーションルールについて詳しくは、クックブックの
 [データバリデーション](https://pieceofcake2.github.io/docs/ja/models/data-validation.html)
 をご覧ください。
 
