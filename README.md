@@ -39,6 +39,14 @@ Please open an issue on [GitHub](https://github.com/pieceofcake2/localized/issue
 
 See the [contribution guidelines](https://github.com/pieceofcake2/.github/blob/master/CONTRIBUTING.md).
 
+## Origin
+
+This package is a maintained fork of [cakephp/localized](https://github.com/cakephp/localized)
+(`cakephp/localized` on Packagist, last upstream version 2.7.0), originally by the CakePHP community
+(Cake Software Foundation, Inc.). It is maintained for CakePHP 2 on modern PHP by
+[pieceofcake2](https://github.com/pieceofcake2). Changes from the original are listed in the
+[commit history since the fork](https://github.com/pieceofcake2/localized/compare/26ed36a...2.x).
+
 ## License
 
 The MIT License. See [LICENSE](LICENSE).
