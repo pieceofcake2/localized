@@ -29,8 +29,8 @@ composer require pieceofcake2/localized
 
 | レイアウト | `installer-paths` |
 | --- | --- |
-| モダン (`config/`, `src/`, `templates/`, `plugins/`) | `"plugins/{$name}/": ["type:cakephp-plugin"]` |
-| レガシー (`app/Config/`, `app/Plugin/`) | `"app/Plugin/{$name}/": ["type:cakephp-plugin"]` |
+| モダン (`config/`、`src/`、`templates/`、`plugins/`) | `"plugins/{$name}/": ["type:cakephp-plugin"]` |
+| レガシー (`app/Config/`、`app/Plugin/`) | `"app/Plugin/{$name}/": ["type:cakephp-plugin"]` |
 
 次に、`config/bootstrap.php` (レガシーレイアウトでは `app/Config/bootstrap.php`) でプラグインを
 読み込みます。
@@ -52,12 +52,12 @@ CakePlugin::load('Localized');
 | `au` | オーストラリア | `AuValidation` |  |
 | `bd` | バングラデシュ | `BdValidation` |  |
 | `be` | ベルギー | `BeValidation` |  |
-| `br` | ブラジル | `BrValidation` | `cpf()`, `cnpj()` |
+| `br` | ブラジル | `BrValidation` | `cpf()`、`cnpj()` |
 | `ca` | カナダ | `CaValidation` |  |
 | `ch` | スイス | `ChValidation` |  |
 | `cn` | 中国 (本土) | `CnValidation` |  |
 | `cz` | チェコ | `CzValidation` |  |
-| `de` | ドイツ | `DeValidation` | `address1()`, `dob()` |
+| `de` | ドイツ | `DeValidation` | `address1()`、`dob()` |
 | `dk` | デンマーク | `DkValidation` |  |
 | `es` | スペイン | `EsValidation` |  |
 | `fr` | フランス | `FrValidation` |  |
@@ -65,21 +65,21 @@ CakePlugin::load('Localized');
 | `hr` | クロアチア | `HrValidation` |  |
 | `id` | インドネシア | `IdValidation` | `mobile()` |
 | `in` | インド | `InValidation` |  |
-| `ir` | イラン | `IrValidation` | `alphaNumeric()`, `numeric()`, `cc()`, `mobile()` |
+| `ir` | イラン | `IrValidation` | `alphaNumeric()`、`numeric()`、`cc()`、`mobile()` |
 | `it` | イタリア | `ItValidation` | `cf()` |
-| `jp` | 日本 | `JpValidation` | `hiragana()`, `katakana()`, `zenkaku()` |
+| `jp` | 日本 | `JpValidation` | `hiragana()`、`katakana()`、`zenkaku()` |
 | `lt` | リトアニア | `LtValidation` |  |
 | `mx` | メキシコ | `MxValidation` |  |
 | `nl` | オランダ | `NlValidation` |  |
 | `no` | ノルウェー | `NoValidation` | `dob()` |
-| `pl` | ポーランド | `PlValidation` | `pesel()`, `regon()` |
+| `pl` | ポーランド | `PlValidation` | `pesel()`、`regon()` |
 | `pt` | ポルトガル | `PtValidation` |  |
 | `ro` | ルーマニア | `RoValidation` |  |
-| `rs` | セルビア | `RsValidation` | `addressCode()`, `jmbg()` |
-| `ru` | ロシア | `RuValidation` | `address1()`, `passport()`, `vatin()`, `snils()` |
+| `rs` | セルビア | `RsValidation` | `addressCode()`、`jmbg()` |
+| `ru` | ロシア | `RuValidation` | `address1()`、`passport()`、`vatin()`、`snils()` |
 | `sk` | スロバキア | `SkValidation` |  |
 | `tr` | トルコ | `TrValidation` | `trIdentityNumber()` |
-| `tw` | 台湾 | `TwValidation` | `ubn()`, `nicn()` |
+| `tw` | 台湾 | `TwValidation` | `ubn()`、`nicn()` |
 | `uk` | イギリス (非推奨。`gb` を使ってください) | `UkValidation` |  |
 | `us` | アメリカ合衆国 | `UsValidation` |  |
 
