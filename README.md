@@ -20,7 +20,7 @@ This is a fork of [cakephp/localized](https://github.com/cakephp/localized) 2.x 
 
 ## Installation
 
-```
+```bash
 composer require pieceofcake2/localized
 ```
 
